@@ -1,12 +1,15 @@
-import { Greetings } from "./components/Greetings/Greetings";
 import { Car } from "./components/Car/Car";
 import "./global.css";
 
 export function App() {
+    function hello(number) {
+        alert("hello de <App/>" + number);
+    }
+
     return (
         <>
-            <Car />
-            <Greetings />
+            <div>Je suis {"<App />"}</div>
+            <Car onCarClick={hello} />
         </>
     );
 }

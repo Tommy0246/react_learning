@@ -1,3 +1,5 @@
+import s from "./style.module.css";
+
 export function Greetings() {
-    return <p>Salutation</p>;
+    return <p className={s.box}>Salutation</p>;
 }
