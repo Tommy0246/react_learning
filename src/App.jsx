@@ -1,15 +1,26 @@
-import { Car } from "./components/Car/Car";
+import { useState } from "react";
+import { DisplayDifficulty } from "./components/DisplayDifficulty/DisplayDifficutly";
+import { MenuList } from "./components/MenuList/MenuList";
+import { MenuListItem } from "./components/MenuListItem/MenuListItem";
 import "./global.css";
 
 export function App() {
-    function hello(number) {
-        alert("hello de <App/>" + number);
+    const [currentDifficuty, setCurrentDifficutly] = useState("");
+
+    function updateDifficulty(difficulty) {
+        setCurrentDifficutly(difficulty);
     }
 
     return (
-        <>
-            <div>Je suis {"<App />"}</div>
-            <Car onCarClick={hello} />
-        </>
+        <div onClick={() => updateDifficulty("")}>
+            <MenuList
+                onItemClick={updateDifficulty}
+                difficulty={currentDifficuty}
+            />
+            <DisplayDifficulty
+                onItemClick={updateDifficulty}
+                difficulty={currentDifficuty}
+            />
+        </div>
     );
 }
